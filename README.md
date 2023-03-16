@@ -1,4 +1,7 @@
-# Compendium
+# The Compendium
+This initiative serves to break out every single solidity vulnerability that has thus far been identified, codify / categorize them, and then present the information into a detailed and concise source of knowledge for the solidity developer and auditor community.
+
+This initiative will be documented live on my twitter: https://twitter.com/theweb3hacker
 
 Day | Topic | Overview
 --- | --- | ---
