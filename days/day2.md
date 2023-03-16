@@ -2,7 +2,7 @@
 This vulnerability arises when a function that's meant to execute a task returns an unexpected error (reverts),  due to some exceptional condition or programming mistake; halting execution of the smart contract and returning the remaining gas.
 
 ## Impact
-An attacker can subvert important contract logic that depends on the full execution of a function leading to unintended consequences
+An attacker can subvert important contract logic that depends on the full execution of a function leading to unintended consequences.
 
 ## Example
 Let's analyze the following code of a simple auction contract:
