@@ -2,7 +2,7 @@
 
 Day | Topic | Overview
 --- | --- | ---
-**1** | [Transaction Order Dependence](/days/day1.md) |
+**1** | [Transaction Order Dependence](/days/day1.md) | When a smart contract requires that, two transactions should be submitted and executed in the same order to get the same results.
 **2** | [Denial of Service (Unexpected Revert)](/days/day2.md) |
 **3** | [Denial of Service (Block Gas Limit)](/days/day3.md) |
 **4** | [Reentrancy - Simple](/days/day4.md) |
