@@ -1,4 +1,4 @@
-# Solidity-Security-Master-Reference
+# Compendium
 
 Day | Topic | Overview
 --- | --- | ---
