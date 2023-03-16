@@ -17,7 +17,7 @@ he following is a simple contract that allows anyone to invest tokens and only t
 
 ![image](https://user-images.githubusercontent.com/35583758/225690860-52729a23-8667-4d0b-b7b1-67d0c6e059b6.png)
 
-An attacker can expand the investors[] array to a large number of arbitrary size by making many investor accounts such that the gas required to execute the for loop exceeds the block gas limit, making the distribute() function inoperable.
+An attacker can expand the `investors[]` array to a large number of arbitrary size by making many investor accounts such that the gas required to execute the for loop exceeds the block gas limit, making the `distribute()` function inoperable.
 
 ## Remediation
 Avoid `for` loops where possible, unless they’re bounded by a small constant number of iterations. For example, an auction often has a deadline for accepting bids, so a DoS attack could stop people from bidding. Ensure the goods being auctioned off are not valuable enough that a block stuffing attack becomes financially viable.
