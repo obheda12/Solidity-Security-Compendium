@@ -13,13 +13,12 @@ It is not recommended to use `EXTCODESIZE` for this purpose as someone could sub
 Using `EXTCODESIZE` to check for EOAs can result in vulnerabilities due to the potential for false positives or negatives. For example, a smart contract with empty code would be incorrectly identified as an EOA. This could lead to security risks, as smart contracts and EOAs have different properties and expected behaviors.
 
 ## Example
-
 A vulnerable code example using `EXTCODESIZE`:
 ![image](https://user-images.githubusercontent.com/35583758/226029937-3a7569f8-66ea-487c-8021-652adbe410f7.png)
 
 In this example, the `isEOA` function checks if the input address is an EOA by checking if the code size is 0. This method is vulnerable because it could return false positives for contracts with empty code.
 
-Remediation:
+## Remediation
 To correctly identify EOAs and contracts, you should use the address.code.length method provided by Solidity, or the staticcall opcode, which is more secure and reliable.
 
 ![image](https://user-images.githubusercontent.com/35583758/226033879-4c3975ae-042b-4928-ae48-fca2261fd886.png)
