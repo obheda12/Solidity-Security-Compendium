@@ -1,4 +1,7 @@
 # Transaction Order Dependence (Front-running)
+
+**NOTE**: Ethereum is now a POS chain and this is not as prevalent however the context of this vulnerability is still important to understand different attack flows for auditors.
+
 Transaction Order Dependence (TOD) is a vulnerability in smart contracts that arises when the execution outcome of a contract function depends on the order of transactions. This vulnerability can be exploited by malicious actors who manipulate transaction ordering to gain an unfair advantage or disrupt the intended behavior of the smart contract.
 
 ## Impact
@@ -20,8 +23,6 @@ In this example, the contract is vulnerable to TOD attacks. A malicious actor ca
 **Batch processing**: Process multiple bids or actions in a single transaction, making it harder for attackers to manipulate the order.
 
 **Randomize transaction order**: Introduce a level of randomness in processing transactions, making it more difficult for malicious actors to predict and manipulate transaction order.
-
-**Use on-chain data**: Instead of relying on off-chain data (such as transaction order), use on-chain data (such as block timestamp) to determine the order of transactions. This minimizes the risk of manipulation.
 
 Applying these remediation steps, the auction contract can be improved as follows:
 
