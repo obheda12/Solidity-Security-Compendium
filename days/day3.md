@@ -13,11 +13,20 @@ This DoS occurs when someone is able to arbitrarily inflate the amount of gas wi
 This DoS occurs when an attacker fills a block with a large number of transactions, which may be invalid or have a low fee, forcing the network to include the invalid transactions and congest the network. As long as those transactions specify a generous enough gas price, rational miners will include the attacker’s transactions at the exclusion of all others.
 
 ## Unbounded Contract Operation Example
-The following is a simple contract that allows anyone to invest tokens and only the owner to distribute tokens back to investors (stored in an array of arbitrary size). Key word: arbitrary size 👀
+Consider a simple contract that stores a list of addresses and allows users to remove their address from the list:
 
-![image](https://user-images.githubusercontent.com/35583758/225690860-52729a23-8667-4d0b-b7b1-67d0c6e059b6.png)
+![image](https://user-images.githubusercontent.com/35583758/226142650-704b5161-3f1e-4e1f-8e20-82cda3574710.png)
 
-An attacker can expand the `investors[]` array to a large number of arbitrary size by making many investor accounts such that the gas required to execute the for loop exceeds the block gas limit, making the `distribute()` function inoperable.
+In this example, the `removeAddress` function iterates through the entire addresses array. If the list grows too large, the gas required to execute the function may exceed the block gas limit, rendering it unusable and effectively causing a DoS attack.
 
 ## Remediation
-Avoid `for` loops where possible, unless they’re bounded by a small constant number of iterations. For example, an auction often has a deadline for accepting bids, so a DoS attack could stop people from bidding. Ensure the goods being auctioned off are not valuable enough that a block stuffing attack becomes financially viable.
+**Use mapping instead of arrays**: In cases where data storage and retrieval are the primary requirements, consider using mappings instead of arrays to reduce gas costs and improve performance.
+
+**Limit iterations**: Limit the number of iterations in loops, and consider breaking down large operations into smaller transactions that can be executed separately.
+
+**Batch processing**: Process multiple items in a single transaction or implement a mechanism that allows users to process items in smaller chunks.
+
+![image](https://user-images.githubusercontent.com/35583758/226142743-8401b6c5-0fa6-4f9b-a557-8a25a43d6cd0.png)
+
+In this improved version, we use a mapping instead of an array to store addresses. The `addAddress` and `removeAddress` functions now have constant gas costs and do not depend on the number of addresses stored, mitigating the block gas limit vulnerability and making the contract more resistant to DoS attacks.
+
