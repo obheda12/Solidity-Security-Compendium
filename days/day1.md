@@ -1,30 +1,28 @@
 # Transaction Order Dependence (Front-running)
-This vulnerability exists due to the ability of one running a node (a miner) being able to see which transactions will occur before being finalized. 
+Transaction Order Dependence (TOD) is a vulnerability in smart contracts that arises when the execution outcome of a contract function depends on the order of transactions. This vulnerability can be exploited by malicious actors who manipulate transaction ordering to gain an unfair advantage or disrupt the intended behavior of the smart contract.
 
 ## Impact
-The miner can then front-run the sender of the initial transaction by simply paying a higher gas fee.
+Transaction Order Dependence can lead to various consequences, such as:
 
-This results in a race condition that gives preference to the payer of the highest gas and is very problematic when it comes to smart contracts that have answer-based reward mechanisms
+Manipulation of contract state, resulting in unintended behavior or loss of funds.
+Front-running attacks, where malicious actors exploit the transaction ordering to gain an unfair advantage in decentralized applications, such as decentralized exchanges or auctions.
 
 ## Example
-Let's look at an example ⬇️
+Consider a simple auction contract where users place bids for an item:
+![image](https://user-images.githubusercontent.com/35583758/226141499-5a257b68-2418-4e09-85b0-bf49782e226d.png)
 
-Let's say that a smart contract exists that gives a reward of 0.1 $ETH for solving a math problem.
-
-John submits the correct answer and pays 50 GWEI in gas to make the transaction.
-
-However, Mark runs his own node and can view the transaction before it has been mined 👀
-
-Mark views John's transaction, copies his answer, and submits another transaction paying 100 GWEI.
-
-As a result of paying higher gas and front-running John, the following occurs:
-
-- Mark wins and receives 0.1 $ETH
-- John loses and receives nothing
+In this example, the contract is vulnerable to TOD attacks. A malicious actor can monitor pending transactions and insert their own transaction with a higher gas price to ensure their transaction gets mined first. This allows the attacker to displace the original highest bidder, leading to potential loss or manipulation of auction outcomes.
 
 ## Remediation
-In order to remediate this:
+**Use commit-reveal schemes**: Implement a commit-reveal mechanism, where users first submit a hashed version of their bid (commit) and later reveal their actual bid. This prevents attackers from knowing the bid amounts and order until the reveal phase.
 
-A contract could use a commit hash reveal scheme allowing one to commit a value while keeping it hidden.
+**Batch processing**: Process multiple bids or actions in a single transaction, making it harder for attackers to manipulate the order.
 
-However the best mitigation would be to remove the importance of order or timing in a contract altogether when someone submits a transaction
+**Randomize transaction order**: Introduce a level of randomness in processing transactions, making it more difficult for malicious actors to predict and manipulate transaction order.
+
+**Use on-chain data**: Instead of relying on off-chain data (such as transaction order), use on-chain data (such as block timestamp) to determine the order of transactions. This minimizes the risk of manipulation.
+
+Applying these remediation steps, the auction contract can be improved as follows:
+
+![image](https://user-images.githubusercontent.com/35583758/226141531-8639ffc4-e8eb-4ae7-a0ac-c723212e0cb9.png)
+
