@@ -13,7 +13,7 @@ This DoS occurs when someone is able to arbitrarily inflate the amount of gas wi
 This DoS occurs when an attacker fills a block with a large number of transactions, which may be invalid or have a low fee, forcing the network to include the invalid transactions and congest the network. As long as those transactions specify a generous enough gas price, rational miners will include the attacker’s transactions at the exclusion of all others.
 
 ## Unbounded Contract Operation Example
-he following is a simple contract that allows anyone to invest tokens and only the owner to distribute tokens back to investors (stored in an array of arbitrary size). Key word: arbitrary size 👀
+The following is a simple contract that allows anyone to invest tokens and only the owner to distribute tokens back to investors (stored in an array of arbitrary size). Key word: arbitrary size 👀
 
 ![image](https://user-images.githubusercontent.com/35583758/225690860-52729a23-8667-4d0b-b7b1-67d0c6e059b6.png)
 
