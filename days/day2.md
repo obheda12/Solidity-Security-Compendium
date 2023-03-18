@@ -2,7 +2,11 @@
 This vulnerability arises when a function that's meant to execute a task returns an unexpected error (reverts),  due to some exceptional condition or programming mistake; halting execution of the smart contract and returning the remaining gas.
 
 ## Impact
-An attacker can subvert important contract logic that depends on the full execution of a function leading to unintended consequences.
+The impact of an unexpected revert vulnerability includes:
+
+1. Disruption of normal contract operation, rendering the contract unusable for legitimate users.
+2. Loss of user confidence in the contract, which may lead to reduced adoption or usage.
+3. Potential financial loss for contract owners or users if funds are locked due to the vulnerability.
 
 ## Example
 Let's analyze the following code of a simple auction contract:
