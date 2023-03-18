@@ -9,7 +9,7 @@ Front-running attacks, where malicious actors exploit the transaction ordering t
 
 ## Example
 Consider a simple auction contract where users place bids for an item:
-![image](https://user-images.githubusercontent.com/35583758/226141499-5a257b68-2418-4e09-85b0-bf49782e226d.png)
+![image](https://user-images.githubusercontent.com/35583758/226141545-55ceeea8-fa17-46ab-b0f6-67e6a48b9cb8.png)
 
 In this example, the contract is vulnerable to TOD attacks. A malicious actor can monitor pending transactions and insert their own transaction with a higher gas price to ensure their transaction gets mined first. This allows the attacker to displace the original highest bidder, leading to potential loss or manipulation of auction outcomes.
 
