@@ -20,13 +20,11 @@ Accessing private data on-chain is possible by interacting with the contract's s
 ### Demonstration
 To read private storage variables using the Ethereum JSON-RPC API, you can use the `eth_getStorageAt` method. This method allows you to query the value of a storage slot in a specific contract. Keep in mind that although storage variables are marked private in the Solidity code, they are still accessible on the blockchain.
 
-Here's a step-by-step guide on how to read private storage variables:
+1. Identify the contract address: Find the address of the contract whose private storage variable you want to read (0x1230000000000000000000000000000000000000)
 
-Identify the contract address: Find the address of the contract whose private storage variable you want to read (0x1230000000000000000000000000000000000000)
+2. Determine the storage slot: Calculate the storage slot of the variable you want to access. The storage slot is determined by the position of the variable in the contract. For mappings, it's a little more complex; you can refer to the Solidity documentation for the exact formula.
 
-Determine the storage slot: Calculate the storage slot of the variable you want to access. The storage slot is determined by the position of the variable in the contract. For mappings, it's a little more complex; you can refer to the Solidity documentation for the exact formula.
-
-Use `eth_getStorageAt` method: Make an API call using the `eth_getStorageAt` method with the contract address and storage slot as parameters.
+3. Use `eth_getStorageAt` method: Make an API call using the `eth_getStorageAt` method with the contract address and storage slot as parameters.
 
 Here's an example using the `UserInfo` contract from the example above:
 
