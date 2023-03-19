@@ -1,5 +1,5 @@
 # Unencrypted Private Data
-Unencrypted private data vulnerability in Solidity occurs when sensitive data is stored on the blockchain without encryption. Due to the transparent nature of the blockchain, all data stored within contracts, including private variables, can be accessed by anyone with access to the network. This can lead to the exposure of sensitive data, undermining user privacy and potentially compromising the security of the smart contract.
+Sensitive data stored on the blockchain without encryption can be a critical security issue. Due to the transparent nature of the blockchain, all data stored within contracts, including private variables, can be accessed by anyone with access to the network. This can lead to the exposure of sensitive data, undermining user privacy and potentially compromising the security of the smart contract.
 
 ## Impact
 The impact of unencrypted private data vulnerability includes:
