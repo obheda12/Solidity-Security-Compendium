@@ -19,7 +19,7 @@ In this example, the `execute` function accepts a target contract address and da
 
 Let's consider an attacker contract that exploits the controlled delegate call vulnerability.
 
-Here's the Attacker contract:
+Here's the `Attacker` contract:
 
 ![image](https://user-images.githubusercontent.com/35583758/226454611-f9a07b25-652e-4a19-961f-1cb99c085553.png)
 
@@ -27,10 +27,10 @@ The attack would work as follows:
 
 1. The attacker sends 100 ether to the `DelegateCallProxy` contract.
 2. The attacker deploys the Attacker contract to the network.
-3. The attacker crafts a malicious payload to call the stealEther function of the Attacker contract using delegate call. This can be done by encoding the function signature.
-4. The attacker calls the execute function of the `DelegateCallProxy` contract, passing the address of the Attacker contract and the malicious payload as arguments.
-5. The `DelegateCallProxy` contract performs a delegate call to the Attacker contract, executing the stealEther function in the context of the DelegateCallProxy contract's storage.
-6. The `stealEther` function transfers the DelegateCallProxy contract's balance (100 ether) to the attacker's address.
+3. The attacker crafts a malicious payload to call the stealEther function of the `Attacker` contract using delegate call. This can be done by encoding the function signature.
+4. The attacker calls the execute function of the `DelegateCallProxy` contract, passing the address of the `Attacker` contract and the malicious payload as arguments.
+5. The `DelegateCallProxy` contract performs a delegate call to the `Attacker` contract, executing the `stealEther` function in the context of the `DelegateCallProxy` contract's storage.
+6. The `stealEther` function transfers the `DelegateCallProxy` contract's balance (100 ether) to the attacker's address.
 
 ## Remediation
 **Use access controls**: Implement access controls (e.g., function modifiers) to ensure that only authorized users can execute the delegate call.
