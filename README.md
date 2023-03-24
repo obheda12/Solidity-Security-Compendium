@@ -3,7 +3,7 @@ This initiative serves to break out every single solidity vulnerability that has
 
 This initiative will be documented live on my twitter: https://twitter.com/theweb3hacker
 
-If you're interested in a high-quality smart contract audit at a resonable budget please feel free to reach out as well. If my team and I have a slot, we will do out best to accomodate!
+If you're interested in a high-quality smart contract audit at a resonable budget please feel free to reach out via twitter as well. If my team and I have a slot, we will do out best to accomodate!
 
 Day | Topic | Overview
 --- | --- | ---
