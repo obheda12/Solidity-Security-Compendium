@@ -3,6 +3,8 @@ This initiative serves to break out every single solidity vulnerability that has
 
 This initiative will be documented live on my twitter: https://twitter.com/theweb3hacker
 
+If you're interested in a high-quality smart contract audit at a resonable budget please feel free to reach out as well. If my team and I have a slot, we will do out best to accomodate!
+
 Day | Topic | Overview
 --- | --- | ---
 **1** | [Transaction Order Dependence](/days/day1.md) | **NOTE:** Ethereum is now a POS chain and this is not as prevalent however the context of this vulnerability is still important to understand different attack flows for auditors. Transaction Order Dependence (TOD) is a vulnerability in smart contracts that arises when the execution outcome of a contract function depends on the order of transactions.
