@@ -25,19 +25,18 @@ The ecrecover function, by itself, doesn't provide protection against signature 
 An attacker can exploit this vulnerability by altering the `v`, `r`, and `s` values of a signature and still pass the ecrecover verification.The function takes four arguments: the hash of the message (hash), the recovery identifier (`v`), and two values `r` and `s` that make up the signature.
 
 ## ELI5
-Imagine you have a magical box that can only be opened by you using a secret password. You also have a special stamp (your signature) that lets everyone know that you approved something. One day, you decide to send a letter to your friend, asking them to give you a toy. You stamp the letter with your special signature so they know it's really from you.
+Imagine you have a magical safe that can only be opened by you using a secret password. You also have a special stamp (your signature) that lets everyone know that you approved something. One day, you decide to send a letter to your friend, asking them to give you some gold. You stamp the letter with your special signature so they know it's really from you.
 
-However, there's a mischievous kid named Bob who knows how your magical stamp works. He figures out that he can create a different-looking stamp that still proves it's from you. Here's how he does it:
+However, there's a mischievous leprechaun named Owen who knows how your magical stamp works. He figures out that he can create a different-looking stamp that still proves it's from you. Here's how he does it step by step:
 
-Bob intercepts your letter before it reaches your friend.
-He carefully examines your signature and figures out how to make a new stamp that looks different but still works like your original signature.
-Bob uses this new stamp on a different letter, asking your friend to give him a toy instead.
-He sends the modified letter to your friend.
-Now, your friend receives the letter with the different-looking signature, but they still believe it's from you because the magical box can be opened with the signature. Your friend gives the toy to Bob, thinking they're helping you.
+1. Owen intercepts your letter before it reaches your friend. He carefully examines your signature and figures out how to make a new stamp that looks different but still works like your original signature.
+2. Owen uses this new stamp on a different letter, asking your friend to give him some gold instead.
+3. He sends the modified letter to your friend. Now, your friend receives the letter with the different-looking signature, but they still believe it's from you because the magical box can be opened with the signature.
+4. Your friend gives the gold to Owen, thinking they're helping you.
 
-In this example, the magical box is like the ecrecover function in Solidity, which checks if a signature is valid. Your stamp is the signature (r, s) values, and the mischievous kid Bob is the attacker manipulating the signature. The toy represents the action you want to perform in a smart contract.
+In this example, the magical box is like the `ecrecover` function in Solidity, which checks if a signature is valid. Your stamp is the signature (`v`, `r`, `s`) values, and the mischievous leprechaun Owen is the attacker manipulating the signature. The toy represents the action you want to perform in a smart contract.
 
-To protect against this kind of attack, you would need a more secure way of creating and checking your signature, like using a well-tested library or adding extra conditions to your magical stamp. This way, Bob wouldn't be able to trick your friend into giving away the toy.
+To protect against this kind of attack, you would need a more secure way of creating and checking your signature, like using a well-tested library or adding extra conditions to your magical stamp. This way, Owen wouldn't be able to trick your friend into giving away the toy.
 
 ## Impact
 The signature malleability vulnerability can lead to:
