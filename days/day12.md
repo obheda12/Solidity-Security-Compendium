@@ -7,9 +7,9 @@ In ECDSA, a digital signature is represented by a pair of values (`r`, `s`). The
 
 The signature is in form of a 65-byte long string, however, these bytes are always later split to three components as briefly touched on above:
 
-last one byte — `v`
-first 32 bytes — `r`
-second 32 bytes — `s`
+- last one byte — `v`
+- first 32 bytes — `r`
+- second 32 bytes — `s`
 
 `v` is the last byte, while `r` and `s` is simply the signature split in half. The `v` is the recovery ID, which can have two values: 0 or 1, corresponding to two sides of the y-axis.
 
