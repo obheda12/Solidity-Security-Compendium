@@ -11,14 +11,14 @@ The signature is in form of a 65-byte long string, however, these bytes are alwa
 - first 32 bytes — `r`
 - second 32 bytes — `s`
 
-- `v` is the last byte, while `r` and `s` is simply the signature split in half. The `v` is the recovery ID, which can have two values: 0 or 1, corresponding to two sides of the y-axis.
+
+`v` is the last byte, while `r` and `s` is simply the signature split in half. The `v` is the recovery ID, which can have two values: 0 or 1, corresponding to two sides of the y-axis.
 
 ![image](https://user-images.githubusercontent.com/35583758/229375008-254586ef-177c-4111-9aa6-60d42ff6a251.png)
 
-
--`r`: A value derived from the elliptic curve point (x, y) generated during the signing process. The `r` value is the x-coordinate of that point.
--`s`: A value calculated during the signing process using the private key, message hash, and `r`. The `s` value is meant to prove that the signer has knowledge of the private key without revealing it.
--`v`: The recovery identifier, which is used to recover the correct public key (address) from the signature. 
+- `r`: A value derived from the elliptic curve point (x, y) generated during the signing process. The `r` value is the x-coordinate of that point.
+- `s`: A value calculated during the signing process using the private key, message hash, and `r`. The `s` value is meant to prove that the signer has knowledge of the private key without revealing it.
+- `v`: The recovery identifier, which is used to recover the correct public key (address) from the signature. 
 
 The ecrecover function, by itself, doesn't provide protection against signature malleability attacks. ECDSA signatures are malleable, meaning they can be altered without invalidating the signature. For every valid signature (`r`, `s`), there exists another valid signature with a different `s` value, let's call it `s`. In Ethereum, the `v` value can also be changed accordingly. This is because the elliptic curve is symmetric, and for each point (x, y) on the curve, there's a corresponding point (x, -y) that maintains the same relationship.
 
