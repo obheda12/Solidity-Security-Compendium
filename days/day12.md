@@ -11,7 +11,7 @@ The signature is in form of a 65-byte long string, however, these bytes are alwa
 - first 32 bytes — `r`
 - second 32 bytes — `s`
 
-`v` is the last byte, while `r` and `s` is simply the signature split in half. The `v` is the recovery ID, which can have two values: 0 or 1, corresponding to two sides of the y-axis.
+- `v` is the last byte, while `r` and `s` is simply the signature split in half. The `v` is the recovery ID, which can have two values: 0 or 1, corresponding to two sides of the y-axis.
 
 ![image](https://user-images.githubusercontent.com/35583758/229375008-254586ef-177c-4111-9aa6-60d42ff6a251.png)
 
