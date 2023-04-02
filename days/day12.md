@@ -72,6 +72,8 @@ To fix the signature malleability vulnerability, follow these steps:
 
 Here's an improved version of the contract using the OpenZeppelin library:
 
+![image](https://user-images.githubusercontent.com/35583758/229376811-e29b59fd-52da-4f75-9727-6dd11d2ee014.png)
+
 In this updated contract, we've replaced the custom isValidSignature function with the OpenZeppelin ECDSA.sol library. This library enforces a low s value during signature validation, ensuring a secure implementation that is resistant to signature malleability attacks. The hash.recover(signature) function, which comes from the library, securely checks the signature and returns the address of the signer. The function then checks if the returned address matches the expected signer, ensuring the signature's validity.
 
 ## Resources for Study
