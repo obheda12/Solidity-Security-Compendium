@@ -34,9 +34,9 @@ However, there's a mischievous leprechaun named Owen who knows how your magical 
 3. He sends the modified letter to your friend. Now, your friend receives the letter with the different-looking signature, but they still believe it's from you because the magical box can be opened with the signature.
 4. Your friend gives the gold to Owen, thinking they're helping you.
 
-In this example, the magical box is like the `ecrecover` function in Solidity, which checks if a signature is valid. Your stamp is the signature (`v`, `r`, `s`) values, and the mischievous leprechaun Owen is the attacker manipulating the signature. The toy represents the action you want to perform in a smart contract.
+In this example, the magical box is like the `ecrecover` function in Solidity, which checks if a signature is valid. Your stamp is the signature (`v`, `r`, `s`) values, and the mischievous leprechaun Owen is the attacker manipulating the signature. The gold represents the action you want to perform in a smart contract.
 
-To protect against this kind of attack, you would need a more secure way of creating and checking your signature, like using a well-tested library or adding extra conditions to your magical stamp. This way, Owen wouldn't be able to trick your friend into giving away the toy.
+To protect against this kind of attack, you would need a more secure way of creating and checking your signature, like using a well-tested library or adding extra conditions to your magical stamp. This way, Owen wouldn't be able to trick your friend into giving away the gold.
 
 ## Impact
 The signature malleability vulnerability can lead to:
