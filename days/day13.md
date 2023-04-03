@@ -31,13 +31,11 @@ Let's consider an attacker that has control over a malicious oracle and can mani
 
 ![image](https://user-images.githubusercontent.com/35583758/229410956-c1a7238b-a9a7-4eb1-a727-45f80dff34d1.png)
 
-This malicious oracle contract allows the attacker to set a manipulated exchange rate through the `setManipulatedExchangeRate` function.
+This malicious oracle contract allows the attacker to set a manipulated exchange rate through the `setManipulatedExchangeRate` function assuming the vulnerable contract is using the `MaliciousOracle` already.
 
-1. Deploy the `MaliciousOracle` contract to the blockchain.
-2. Deploy the `TokenSwap` contract, passing the address of the `MaliciousOracle` contract as the oracle parameter in the constructor.
-3. Set the manipulated exchange rate in the `MaliciousOracle` contract to a rate that is favorable for the attacker, e.g., a very low rate for selling `tokenA` and buying `tokenB`.
-4. Interact with the `TokenSwap` contract's `swapTokens` function, passing an amount of `tokenA` to be sold. The contract will use the manipulated exchange rate, allowing the attacker to buy tokenB at a significantly lower price than the fair market rate.
-5. Repeat this process to exploit the vulnerability and accumulate a large amount of `tokenB` at an unfair rate.
+1. Set the manipulated exchange rate in the `MaliciousOracle` contract to a rate that is favorable for the attacker, e.g., a very low rate for selling `tokenA` and buying `tokenB`.
+2. Interact with the `TokenSwap` contract's `swapTokens` function, passing an amount of `tokenA` to be sold. The contract will use the manipulated exchange rate, allowing the attacker to buy tokenB at a significantly lower price than the fair market rate.
+3. Repeat this process to exploit the vulnerability and accumulate a large amount of `tokenB` at an unfair rate.
 
 ## Remediation
 **Use multiple trusted oracles:** Instead of relying on a single oracle, you can implement a system that uses multiple trusted oracles to fetch data. This reduces the risk of price manipulation, as an attacker would need to manipulate multiple oracles.
