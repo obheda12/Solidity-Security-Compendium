@@ -5,6 +5,21 @@ Oracle price manipulation vulnerability occurs when a smart contract relies on a
 ## Impact
 An attacker who successfully manipulates an oracle's data can exploit the smart contract, leading to various undesirable outcomes, such as the theft of funds, incorrect token swaps, or unintended liquidations. Oracle price manipulation vulnerability can severely undermine the trust in a smart contract, as users cannot rely on the correctness of the information provided by the oracle.
 
+## ELI5
+Imagine you and your friends are trading baseball cards. To make sure everyone trades fairly, you all rely on a wise person, called the "oracle," to tell you the value of each card.
+
+One day, your sneaky friend Bob wants to get a more valuable card without giving up one of the same value. He knows that everyone trusts the oracle, so he comes up with a sneaky plan. Here's how he does it:
+
+1. Bob waits for the moment when someone wants to trade a baseball card with him.
+2. Just before the trade, Bob tricks the oracle into thinking that his card is worth much more than it actually is.
+3. Since everyone trusts the oracle, they believe the incorrect value and agree to trade a more card for Bob's less valuable one.
+4. After the trade, the oracle realizes its mistake, but it's too late — the trade has already happened, and Bob got a better card without giving up a fair one.
+
+In this example, the oracle is like a price feed in a smart contract, and the baseball cards represent digital assets being traded. The sneaky friend, Bob, is the attacker manipulating the price feed.
+
+To protect against this kind of attack, you would need a more secure way of getting the card values. Instead of relying on just one oracle, you could ask many wise people to provide the values and then take the average. This way, it's much harder for Bob to trick everyone and make unfair trades. In the world of smart contracts, this solution is like using a decentralized oracle network, such as Chainlink, which provides more reliable and secure price data.
+
+
 ## Example
 Consider a simple smart contract that relies on an oracle for determining the exchange rate between two tokens:
 
