@@ -10,9 +10,9 @@ Consider a simple smart contract that relies on an oracle for determining the ex
 
 ![image](https://user-images.githubusercontent.com/35583758/229410631-8bb342d7-7d2a-4ad5-8da4-5a587a4925ed.png)
 
-In this example, the smart contract TokenSwap relies on the getExchangeRate() function provided by an external oracle to determine the exchange rate between tokenA and tokenB. If an attacker can manipulate the oracle's data and alter the exchange rate, they can exploit the smart contract and exchange tokens at a rate that is beneficial to them, but detrimental to other users.
+In this example, the smart contract `TokenSwap` relies on the `getExchangeRate()` function provided by an external oracle to determine the exchange rate between `tokenA` and `tokenB`. If an attacker can manipulate the oracle's data and alter the exchange rate, they can exploit the smart contract and exchange tokens at a rate that is beneficial to them, but detrimental to other users.
 
-Let's consider an attacker that has control over a malicious oracle and can manipulate the exchange rate provided by the oracle. The attacker can then exploit the TokenSwap contract to trade tokens at an unfair rate:
+Let's consider an attacker that has control over a malicious oracle and can manipulate the exchange rate provided by the oracle. The attacker can then exploit the `TokenSwap` contract to trade tokens at an unfair rate:
 
 ![image](https://user-images.githubusercontent.com/35583758/229410956-c1a7238b-a9a7-4eb1-a727-45f80dff34d1.png)
 
@@ -20,9 +20,9 @@ This malicious oracle contract allows the attacker to set a manipulated exchange
 
 1. Deploy the `MaliciousOracle` contract to the blockchain.
 2. Deploy the `TokenSwap` contract, passing the address of the `MaliciousOracle` contract as the oracle parameter in the constructor.
-3. Set the manipulated exchange rate in the `MaliciousOracle` contract to a rate that is favorable for the attacker, e.g., a very low rate for selling tokenA and buying tokenB.
-4. Interact with the `TokenSwap` contract's `swapTokens` function, passing an amount of tokenA to be sold. The contract will use the manipulated exchange rate, allowing the attacker to buy tokenB at a significantly lower price than the fair market rate.
-5. Repeat this process to exploit the vulnerability and accumulate a large amount of tokenB at an unfair rate.
+3. Set the manipulated exchange rate in the `MaliciousOracle` contract to a rate that is favorable for the attacker, e.g., a very low rate for selling `tokenA` and buying `tokenB`.
+4. Interact with the `TokenSwap` contract's `swapTokens` function, passing an amount of `tokenA` to be sold. The contract will use the manipulated exchange rate, allowing the attacker to buy tokenB at a significantly lower price than the fair market rate.
+5. Repeat this process to exploit the vulnerability and accumulate a large amount of `tokenB` at an unfair rate.
 
 ## Remediation
 **Use multiple trusted oracles:** Instead of relying on a single oracle, you can implement a system that uses multiple trusted oracles to fetch data. This reduces the risk of price manipulation, as an attacker would need to manipulate multiple oracles.
