@@ -60,3 +60,8 @@ In this mitigated contract, we have made the following changes:
 
 By making these changes, we have significantly reduced the risk of oracle price manipulation attacks. The updated `TokenSwap` contract now relies on a decentralized and secure price feed provided by Chainlink, which makes it much more difficult for an attacker to manipulate the exchange rate for their benefit.
 
+## Resources
+- https://consensys.github.io/smart-contract-best-practices/attacks/oracle-manipulation/
+- https://medium.com/beaver-finance/defi-security-lecture-7-price-oracle-manipulation-d716cdeaaf77
+- https://blog.chain.link/market-manipulation-vs-oracle-exploits/
+- https://blog.openzeppelin.com/secure-smart-contract-guidelines-the-dangers-of-price-oracles/
